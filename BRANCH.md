@@ -4,11 +4,11 @@ Prevents bad git commit, git push with git hooks.
 
 ## Branch name
 
-**feature**:
-**bugfix**:
-**prerelease**:
-**release**:
-**hotfix**:
+- **feature**:
+- **bugfix**:
+- **prerelease**:
+- **release**:
+- **hotfix**:
 
 ## Script
 
