@@ -2,7 +2,7 @@
 
 Prevents bad git commit, git push with git hooks.
 
-### Commitizen
+## Commitizen
 
 Launch commitizen CLI to commit your work. It will guide you to write good conventional commits.
 
