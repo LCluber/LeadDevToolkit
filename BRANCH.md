@@ -30,7 +30,7 @@ fi
 exit 0
 ```
 
-### example
+## example
 
 ```
 feature/cmm-1955-send-email
