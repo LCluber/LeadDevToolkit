@@ -1,39 +1,125 @@
-## Husky
+# Git flow
 
-Prevents bad git commit, git push with git hooks.
+## Branches
 
-## Branch name
+- **master**: For production releases.
+- **develop**: For next release development.
+- Available branch prefixes for developers : 
+    - **feature**: For new feature to develop.
+    - **release**: When release Cycle is over. Features ready to ship are kept here. Freeing develop branch for next cycle.
+    - **bugfix**: For new bug to fix.
+    - **hotfix**: For production bug to fix ASAP on master branch.
+    - **doc**: To improve or update developer documentation.
+    - **test**: To add or update unit tests or E2E tess.
 
-- **feature**:
-- **bugfix**:
-- **prerelease**:
-- **release**:
-- **hotfix**:
+## Feature branch
 
-## Script
+From : **develop**
+
+Each new feature should reside in its own branch, which can be pushed to the central repository for backup and collaboration.
+
+When a feature is complete, it gets merged back into develop. Features never interact directly with master.
+
+When a feature is way behind develop because of a long development process, merge develop into the feature branch to stay tuned.
+
+### example
 
 ```bash
-LC_ALL=C
-
-local_branch="$(git rev-parse --abbrev-ref HEAD)"
-
-valid_branch_regex="^(feature|bugfix|library|prerelease|release|hotfix)\/[a-z0-9._-]+$ || ^dev$"
-
-message="There is something wrong with your branch name. Branch names in this project must adhere to this contract: $valid_branch_regex. Your commit will be rejected. You should rename your branch to a valid name and try again."
-
-if [[ ! $local_branch =~ $valid_branch_regex ]]
-then
-    echo "$message"
-    exit 1
-fi
-
-exit 0
-```
-
-## example
+git checkout develop
+git checkout -b feature/csv-export
 
 ```
-feature/cmm-1955-send-email
-bugfix/tul-12567-wrong-email-regex
 
+## Bugfix branch
+
+From : **develop**
+
+Each new bug should reside in its own branch, which can be pushed to the central repository for backup and collaboration.
+
+When a bug is complete, it gets merged back into develop. Features never interact directly with master.
+
+### example
+
+```bash
+git checkout develop
+git checkout -b bugfix/#456/export-button-color
 ```
+
+## Release branch
+
+From : **develop**
+
+Once develop has acquired enough features for a release or a predetermined release date is approaching, you fork a release branch off of develop.
+
+Creating this branch starts the next release cycle, so no new features can be added after this point, only bug fixes, documentation generation, and other release-oriented tasks should go in this branch.
+
+Once it's ready to ship, the release branch gets merged into master and tagged with a version number. In addition, it should be merged back into develop, which may have progressed since the release was initiated.
+
+Using a dedicated branch to prepare releases makes it possible for one team to polish the current release while another team continues working on features for the next release. It also creates well-defined phases of development.
+
+### example
+```bash
+git checkout develop
+git checkout -b release/0.1.0
+```
+
+## Hotfix Branch
+
+From : **master**
+
+Used to quickly patch production releases.
+
+This is the only branch that should fork directly off of master. As soon as the fix is complete, it should be merged into both master and develop (or the current release branch), and master should be tagged with an updated version number.
+
+Having a dedicated line of development for bug fixes lets your team address issues without interrupting the rest of the workflow or waiting for the next release cycle.
+
+### example
+```bash
+git checkout master
+git checkout -b hotfix/#344/wrong-email-regex
+```
+
+## Doc branch
+
+From : **develop**
+
+Each documentation update should reside in its own branch, which can be pushed to the central repository for backup and collaboration.
+
+Doc branch is only for developer documentation in order to improve collabortation in the team.
+User documentation update has to be developed in a feature branch. 
+
+When documentation is complete, it gets merged back into develop. Documentations never interact directly with master.
+
+### example
+
+```bash
+git checkout develop
+git checkout -b doc/husky-pre-commit
+```
+
+## Test branch
+
+From : **develop**
+
+Each test update should reside in its own branch, which can be pushed to the central repository for backup and collaboration.
+
+When test is complete, it gets merged back into develop. Tests never interact directly with master.
+
+### example
+
+```bash
+git checkout develop
+git checkout -b test/csv-export
+```
+
+## Summary
+
+The overall flow is as follow :
+
+- A develop branch is created from master.
+- A release branch is created from develop.
+- Feature, Doc and Test branches are created from develop.
+- When a feature is complete it is merged into the develop branch.
+- When the release branch is done it is merged into develop then master on release date.
+- If an issue in master is detected a hotfix branch is created from master.
+- Once the hotfix is complete it is merged to both develop and master.
