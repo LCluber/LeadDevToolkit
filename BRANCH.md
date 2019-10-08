@@ -9,8 +9,9 @@
     - **release**: When release Cycle is over. Features ready to ship are kept here. Freeing develop branch for next cycle.
     - **bugfix**: For new bug to fix.
     - **hotfix**: For production bug to fix ASAP on master branch.
+    - **refactor**: To improve or update code and structure.
     - **doc**: To improve or update developer documentation.
-    - **test**: To add or update unit tests or E2E tess.
+    - **test**: To add or update unit tests or E2E tests.
 
 ## Feature branch
 
@@ -27,7 +28,6 @@ When a feature is way behind develop because of a long development process, merg
 ```bash
 git checkout develop
 git checkout -b feature/csv-export
-
 ```
 
 ## Bugfix branch
@@ -58,12 +58,13 @@ Once it's ready to ship, the release branch gets merged into master and tagged w
 Using a dedicated branch to prepare releases makes it possible for one team to polish the current release while another team continues working on features for the next release. It also creates well-defined phases of development.
 
 ### example
+
 ```bash
 git checkout develop
 git checkout -b release/0.1.0
 ```
 
-## Hotfix Branch
+## Hotfix branch
 
 From : **master**
 
@@ -74,9 +75,27 @@ This is the only branch that should fork directly off of master. As soon as the 
 Having a dedicated line of development for bug fixes lets your team address issues without interrupting the rest of the workflow or waiting for the next release cycle.
 
 ### example
+
 ```bash
 git checkout master
 git checkout -b hotfix/#344/wrong-email-regex
+```
+
+## Refactor branch
+
+From : **develop**
+
+Useful technical debt reduction, ESlint/SonarQube fix, 
+
+Each refactor should reside in its own branch, which can be pushed to the central repository for backup and collaboration.
+
+When refactor is complete, it gets merged back into develop. Tests never interact directly with master.
+
+### example
+
+```bash
+git checkout develop
+git checkout -b refactor/export-csv-class
 ```
 
 ## Doc branch
@@ -123,3 +142,7 @@ The overall flow is as follow :
 - When the release branch is done it is merged into develop then master on release date.
 - If an issue in master is detected a hotfix branch is created from master.
 - Once the hotfix is complete it is merged to both develop and master.
+
+![Gitflow chart][gitflowchart]
+
+[gitflowchart]: ../assets/gitflow.png "Gitflow chart"
