@@ -12,6 +12,7 @@
     - **refactor**: To improve or update code and structure.
     - **doc**: To improve or update developer documentation.
     - **test**: To add or update unit tests or E2E tests.
+    - **build**: To improve the workflow of the project.
 
 ## Feature branch
 
@@ -19,7 +20,7 @@ From : **develop**
 
 Each new feature should reside in its own branch, which can be pushed to the central repository for backup and collaboration.
 
-When a feature is complete, it gets merged back into develop. Features never interact directly with master.
+When a feature is complete and tested, it gets merged back into develop. Features never interact directly with master.
 
 When a feature is way behind develop because of a long development process, merge develop into the feature branch to stay tuned.
 
@@ -28,21 +29,6 @@ When a feature is way behind develop because of a long development process, merg
 ```bash
 git checkout develop
 git checkout -b feature/csv-export
-```
-
-## Bugfix branch
-
-From : **develop**
-
-Each new bug should reside in its own branch, which can be pushed to the central repository for backup and collaboration.
-
-When a bug is complete, it gets merged back into develop. Features never interact directly with master.
-
-### example
-
-```bash
-git checkout develop
-git checkout -b bugfix/#456/export-button-color
 ```
 
 ## Release branch
@@ -62,6 +48,21 @@ Using a dedicated branch to prepare releases makes it possible for one team to p
 ```bash
 git checkout develop
 git checkout -b release/0.1.0
+```
+
+## Bugfix branch
+
+From : **develop**
+
+Each new bug should reside in its own branch, which can be pushed to the central repository for backup and collaboration.
+
+When a bugfux is complete and tested, it gets merged back into develop. Bugfixes never interact directly with master.
+
+### example
+
+```bash
+git checkout develop
+git checkout -b bugfix/#456/export-button-color
 ```
 
 ## Hotfix branch
@@ -89,7 +90,7 @@ Useful technical debt reduction, ESlint/SonarQube fix,
 
 Each refactor should reside in its own branch, which can be pushed to the central repository for backup and collaboration.
 
-When refactor is complete, it gets merged back into develop. Tests never interact directly with master.
+When refactor is complete and tested, it gets merged back into develop. Tests never interact directly with master.
 
 ### example
 
@@ -124,6 +125,14 @@ Each test update should reside in its own branch, which can be pushed to the cen
 
 When test is complete, it gets merged back into develop. Tests never interact directly with master.
 
+## Build branch
+
+From : **develop**
+
+Each build update should reside in its own branch, which can be pushed to the central repository for backup and collaboration.
+
+When build is complete and tested, it gets merged back into develop. Builds never interact directly with master.
+
 ### example
 
 ```bash
@@ -131,20 +140,13 @@ git checkout develop
 git checkout -b test/csv-export
 ```
 
-## Automation
-
-- [Husky](https://github.com/typicode/husky) : 
-Prevents bad git commit, git push with git hooks. It will stop you if your commit message is not valid.
-- [GitBranchValidator](https://github.com/LCluber/GitBranchValidator) : 
-Automaticaly check the validity of a branch name before commit.
-
 ## Summary
 
 The overall flow is as follow :
 
 - A develop branch is created from master.
 - A release branch is created from develop.
-- Feature, Doc and Test branches are created from develop.
+- Feature, Doc, Test and Build branches are created from develop.
 - When a feature is complete it is merged into the develop branch.
 - When the release branch is done it is merged into develop then master on release date.
 - If an issue in master is detected a hotfix branch is created from master.
@@ -153,3 +155,10 @@ The overall flow is as follow :
 ![Gitflow chart][gitflowchart]
 
 [gitflowchart]: ../assets/gitflow.png "Gitflow chart"
+
+## Automation
+
+- [Husky](https://github.com/typicode/husky) : 
+Prevents bad git commit, git push with git hooks. It will stop you if your commit message is not valid.
+- [GitBranchValidator](https://github.com/LCluber/GitBranchValidator) : 
+Automaticaly check the validity of a branch name before commit.
