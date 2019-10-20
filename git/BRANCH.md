@@ -131,6 +131,13 @@ git checkout develop
 git checkout -b test/csv-export
 ```
 
+## Automation
+
+- [Husky](https://github.com/typicode/husky) : 
+Prevents bad git commit, git push with git hooks. It will stop you if your commit message is not valid.
+- [GitBranchValidator](https://github.com/LCluber/GitBranchValidator) : 
+Automaticaly check the validity of a branch name before commit.
+
 ## Summary
 
 The overall flow is as follow :
