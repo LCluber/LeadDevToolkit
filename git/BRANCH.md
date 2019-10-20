@@ -6,7 +6,7 @@
 - **develop**: For next release development.
 - Available branch prefixes for developers : 
     - **feature**: For new feature to develop.
-    - **release**: When release Cycle is over. Features ready to ship are kept here. Freeing develop branch for next cycle.
+    - **release**: When release cycle is over. Features ready to ship are kept here. Freeing develop branch for next cycle.
     - **bugfix**: For new bug to fix.
     - **hotfix**: For production bug to fix ASAP on master branch.
     - **refactor**: To improve or update code and structure.
@@ -125,6 +125,13 @@ Each test update should reside in its own branch, which can be pushed to the cen
 
 When test is complete, it gets merged back into develop. Tests never interact directly with master.
 
+### example
+
+```bash
+git checkout develop
+git checkout -b test/csv-export
+```
+
 ## Build branch
 
 From : **develop**
@@ -137,8 +144,8 @@ When build is complete and tested, it gets merged back into develop. Builds neve
 
 ```bash
 git checkout develop
-git checkout -b test/csv-export
-```
+git checkout -b build/gitbranchvalidator
+``
 
 ## Summary
 

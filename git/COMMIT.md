@@ -61,9 +61,9 @@ A commit can contain the following structural elements :
 
 - **Fix:** Patches a bug in your codebase (this correlates with PATCH in semantic versioning).
 - **Feat:** Introduces a new feature to the codebase (this correlates with MINOR in semantic versioning).
+- **Additional types** are not mandated by the conventional commits specification, and have no implicit effect in semantic versioning (unless they include a BREAKING CHANGE). 
 - **BREAKING CHANGE:** A commit that has a footer "BREAKING CHANGE:" introduces a breaking API change (correlating with MAJOR in semantic versioning). A BREAKING CHANGE can be part of commits of any type.
 - **footers** other than "BREAKING CHANGE: <description>" may be provided and follow a convention similar to git trailer format.
-- **Additional types** are not mandated by the conventional commits specification, and have no implicit effect in semantic versioning (unless they include a BREAKING CHANGE). 
 - **A scope** may be provided to a commit’s type, to provide additional contextual information and is contained within parenthesis (ex : feat(parser): add ability to parse arrays).
 
 ### examples
