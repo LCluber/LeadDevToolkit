@@ -1,3 +1,10 @@
+---
+layout: default
+title: Branching
+parent: Git
+nav_order: 1
+---
+
 # Workflow
 
 ## Branches

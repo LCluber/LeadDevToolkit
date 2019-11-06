@@ -1,3 +1,9 @@
+---
+layout: default
+title: Commits
+parent: Git
+nav_order: 2
+---
 
 # Conventional commits
 
