@@ -168,7 +168,7 @@ The overall flow is as follow :
 
 ![Gitflow chart][gitflowchart]
 
-[gitflowchart]: ../../assets/gitflow.png "Gitflow chart"
+[gitflowchart]: ../../assets/git/gitflow.png "Gitflow chart"
 
 ## Automation
 
