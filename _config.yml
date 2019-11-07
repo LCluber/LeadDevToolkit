@@ -26,17 +26,28 @@ color_scheme: "dark"
 markdown: kramdown
 remote_theme: pmarsceill/just-the-docs
 theme: just-the-docs
+# Enable or disable the site search
+search_enabled: true
+# Enable support for hyphenated search words:
+search_tokenizer_separator: /[\s/]+/
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
+exclude:
+  - Gemfile
+  - Gemfile.lock
+#  - node_modules
 #   - vendor/bundle/
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
