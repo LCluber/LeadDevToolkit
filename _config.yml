@@ -17,7 +17,7 @@ title: Lead dev Toolkit
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Utility belt for lead devs.
-baseurl: '/docs' # the subpath of your site, e.g. /blog
+baseurl: '' # the subpath of your site, e.g. /blog
 url: 'https://lcluber.github.io/LeadDevToolkit/' # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: lcluber
 github_username: LCluber
