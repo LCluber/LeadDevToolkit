@@ -19,11 +19,12 @@ description: >- # this means to ignore newlines until "baseurl:"
   Utility belt for lead devs.
 baseurl: '' # the subpath of your site, e.g. /blog
 url: '' # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username: jekyll
+twitter_username: lcluber
+github_username: LCluber
 color_scheme: "dark"
 # Build settings
 markdown: kramdown
+remote_theme: pmarsceill/just-the-docs
 theme: just-the-docs
 plugins:
   - jekyll-feed
