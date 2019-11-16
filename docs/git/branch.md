@@ -152,7 +152,7 @@ When build is complete and tested, it gets merged back into develop. Builds neve
 ```bash
 git checkout develop
 git checkout -b build/gitbranchvalidator
-``
+```
 
 ## Summary
 
