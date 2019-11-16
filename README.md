@@ -2,8 +2,8 @@
 Utility belt for lead devs
 
 - **Git**
-    - [Workflow](/docs/git/BRANCH.md)
-    - [Conventional commits](/docs/git/COMMIT.md)
+    - [Workflow](https://lcluber.github.io/LeadDevToolkit/docs/git/branch.html)
+    - [Conventional commits](https://lcluber.github.io/LeadDevToolkit/docs/git/commit.html)
 
 - **Libraries**
     - [npm](https://www.npmjs.com/get-npm) : 
